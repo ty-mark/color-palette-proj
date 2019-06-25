@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ColorBox from './ColorBox';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
-import './Palette.css';
+import './Palette.css'; /* add our style after the vendor style to override it*/
 
 class Palette extends Component {
   constructor(props) {
@@ -22,13 +22,15 @@ class Palette extends Component {
     return (
       <div className='Palette'>
         {/* Navbar goes here */}
-        <Slider
-          defaultValue={level}
-          min={100}
-          max={900}
-          step={100}
-          onAfterChange={this.changeLevel}
-        />
+        <div className='slider'>
+          <Slider
+            defaultValue={level}
+            min={100}
+            max={900}
+            step={100}
+            onAfterChange={this.changeLevel}
+          />
+        </div>
         <div className='Palette-colors'>
           {colorBoxes}
         </div>
